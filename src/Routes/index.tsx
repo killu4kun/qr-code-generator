@@ -6,10 +6,8 @@ import Profile from "../pages/Profile";
 export const Routes = () => {
   return (
     <QrCodeProvider>
-      <Rotas>
-        <Route path="/" element={<Home />} />
-        <Route path="/:name" element={<Profile />} />
-      </Rotas>
+      <Route path="/" element={<Home />} />
+      <Route path="/:name" element={<Profile />} />
     </QrCodeProvider>
   );
 };

@@ -1,20 +1,17 @@
-import { useNavigate } from "react-router-dom";
 import useQrCode from "../../../../hooks/useQrCode";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
 
 export default function Form() {
   const {
-    name,
-    linkedin,
-    github,
+    name="",
+    linkedin="",
+    github="",
     setName,
     setLinkedin,
     setGithub,
     setFinished,
   } = useQrCode();
-
-  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +50,7 @@ export default function Form() {
             value={github}
             onChange={(e) => setGithub(e.target.value)}
           />
-          <Button disabled={handleDisabled()} label="Generate Image" />
+          <Button aria-label="button-name" disabled={handleDisabled()} label="Generate Image" />
         </form>
       </div>
     </div>

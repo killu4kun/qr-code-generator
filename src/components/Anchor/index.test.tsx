@@ -11,4 +11,14 @@ describe("Anchor", () => {
     const { getByText } = render(<Anchor link="test" label="test" />);
     expect(getByText("test")).toHaveAttribute("href", "test");
   });
+
+  it("should render anchor with target", () => {
+    const { getByText } = render(<Anchor link="test" label="test" />);
+    expect(getByText("test")).toHaveAttribute("target", "_blank");
+  });
+
+  it("should render anchor with label", () => {
+    const { getByText } = render(<Anchor link="test" label="test" />);
+    expect(getByText("test")).toHaveTextContent("test");
+  });
 });
