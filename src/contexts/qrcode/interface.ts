@@ -13,4 +13,6 @@ export interface QrCodeContextProps {
   setGithub: (github: string) => void;
   linkedin: string;
   setLinkedin: (linkedin: string) => void;
+  finished: boolean;
+  setFinished: (finished: boolean) => void;
 }

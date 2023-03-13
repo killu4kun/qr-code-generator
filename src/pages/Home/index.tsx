@@ -1,5 +1,9 @@
-import Form from "../../components/Form";
+import Form from "./components/Form";
+import QRCd from "../../components/QRCode";
+import useQrCode from "../../hooks/useQrCode";
 
 export default function Home() {
-  return <Form />;
+  const { finished } = useQrCode();
+
+  return finished ? <QRCd /> : <Form />;
 }

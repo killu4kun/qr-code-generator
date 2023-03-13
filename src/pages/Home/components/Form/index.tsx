@@ -1,17 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import useQrCode from "../../hooks/useQrCode";
-import Button from "../Button";
-import Input from "../Input";
+import useQrCode from "../../../../hooks/useQrCode";
+import Button from "../../../../components/Button";
+import Input from "../../../../components/Input";
 
 export default function Form() {
-  const { name, linkedin, github, setName, setLinkedin, setGithub } =
-    useQrCode();
+  const {
+    name,
+    linkedin,
+    github,
+    setName,
+    setLinkedin,
+    setGithub,
+    setFinished,
+  } = useQrCode();
 
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate(`/${name}`);
+    setFinished(true);
   };
 
   const handleDisabled = () => {
