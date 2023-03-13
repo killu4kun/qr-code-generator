@@ -1,4 +1,4 @@
-import { ArrowBendRightDown } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import QRCode from "react-qr-code";
 import { useNavigate } from "react-router-dom";
 import useQrCode from "../../hooks/useQrCode";
@@ -12,13 +12,30 @@ export default function QRCd() {
   };
 
   return (
-    <div className="flex w-screen h-screen flex-col items-center inset-0 justify-around p-12 bg-[#FFFAF1]">
-      <h2 className="text-4xl font-bold text-[#DEC19B]">{name}</h2>
-      <div className="hover:shadow-form rounded-md  py-3 px-8 text-center text-base text-xl font-semibold text-[#DEC19B] outline-none">
-        SCAN ME
-      </div>
-        <ArrowBendRightDown color='black' size={150} />
-      <QRCode onClick={handleQrCodeClick} value="teste" />
+    <div className="h-screen bg-gray-50 flex items-center w-screen">
+      <section className="bg-cover bg-center py-32 w-full bg-[#F4F0DB] ">
+        <div className="container mx-auto text-left text-white">
+          <div className="flex items-center ">
+            <div className="w-1/3 text-[#ECD9BA]">
+              <h1 className="text-5xl font-medium mb-6 ">{name}</h1>
+              <p className="text-xl mb-12">SCAN ME</p>
+            </div>
+            <div className="w-1/3">
+              <ArrowRight
+                size={window.innerWidth <= 768 ? 75 : 150}
+                color="#ECD9BA"
+              />
+            </div>
+            <div className="flex grow-1">
+              {window.innerWidth <= 768 ? (
+                <QRCode onClick={handleQrCodeClick} value="teste" size={50} />
+              ) : (
+                <QRCode onClick={handleQrCodeClick} value="teste" size={100} />
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
