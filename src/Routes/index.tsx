@@ -1,10 +1,12 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route, Routes as Rotas } from "react-router-dom";
+import Home from "../pages/Home";
+import Profile from "../pages/Profile";
 
 export const Routes = () => {
   return (
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/:name" component={About} />
-    </BrowserRouter>
+    <Rotas>
+      <Route path="/" element={<Home />} />
+      <Route path="/:name" element={<Profile />} />
+    </Rotas>
   );
 };
