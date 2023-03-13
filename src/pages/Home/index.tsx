@@ -1,3 +1,5 @@
+import Form from "../../components/Form";
+
 export default function Home() {
-  return <div className="text-3xl font-bold">Home</div>;
+  return <Form />;
 }
