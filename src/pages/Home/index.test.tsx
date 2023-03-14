@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
-import Form from "./";
+import Home from ".";
 
-describe("Form", () => {
-  it("should render the inputs and button", () => {
-    const { getByPlaceholderText, getByLabelText } = render(<Form />);
+describe("Home", () => {
+  it("should render the form", () => {
+    const { getByPlaceholderText, getByLabelText } = render(<Home />);
 
     expect(getByLabelText("Name")).toBeInTheDocument();
     expect(getByLabelText("Linkedin URL")).toBeInTheDocument();

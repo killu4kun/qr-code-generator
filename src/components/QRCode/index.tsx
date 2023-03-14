@@ -1,15 +1,22 @@
 import QRCode from "react-qr-code";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useQrCode from "../../hooks/useQrCode";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function QRCd() {
   const { name } = useQrCode();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleQrCodeClick = () => {
     navigate(`/${name}`);
   };
+
+  const oldURL = location.pathname;
+  const newURL = oldURL.concat(name);
+
+ 
+
 
   return (
     <div className="h-screen bg-gray-50 flex items-center w-screen">
@@ -25,9 +32,13 @@ export default function QRCd() {
             </div>
             <div className="flex grow-1">
               {window.innerWidth <= 768 ? (
-                <QRCode onClick={handleQrCodeClick} value="teste" size={50} />
+                <QRCode
+                  onClick={handleQrCodeClick}
+                  value={newURL}
+                  size={50}
+                />
               ) : (
-                <QRCode onClick={handleQrCodeClick} value="teste" size={100} />
+                <QRCode onClick={handleQrCodeClick} value={newURL} size={100} />
               )}
             </div>
           </div>

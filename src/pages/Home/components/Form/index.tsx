@@ -4,9 +4,9 @@ import Input from "../../../../components/Input";
 
 export default function Form() {
   const {
-    name="",
-    linkedin="",
-    github="",
+    name = "",
+    linkedin = "",
+    github = "",
     setName,
     setLinkedin,
     setGithub,
@@ -50,7 +50,11 @@ export default function Form() {
             value={github}
             onChange={(e) => setGithub(e.target.value)}
           />
-          <Button aria-label="button-name" disabled={handleDisabled()} label="Generate Image" />
+          <Button
+            aria-label="button-name"
+            disabled={handleDisabled()}
+            label="Generate Image"
+          />
         </form>
       </div>
     </div>
