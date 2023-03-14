@@ -1,6 +1,8 @@
 import useQrCode from "../../../../hooks/useQrCode";
 import Button from "../../../../components/Button";
 import Input from "../../../../components/Input";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Form() {
   const {
@@ -13,8 +15,38 @@ export default function Form() {
     setFinished,
   } = useQrCode();
 
+  const verifyIfValidLinkedin =
+    /^https?:\/\/(www\.)?linkedin\.com\/(in|pub|company)\/[\w-]+\/?$/;
+
+  const verifyIfValidGithub = /^https?:\/\/(www\.)?github\.com\/[\w-]+\/?$/;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (linkedin.length > 0 && !verifyIfValidLinkedin.test(linkedin)) {
+      return toast.error("Invalid linkedin URL", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+    if (github.length > 0 && !verifyIfValidGithub.test(github)) {
+      return toast.error("Invalid github", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
     setFinished(true);
   };
 
@@ -44,6 +76,7 @@ export default function Form() {
             value={linkedin}
             onChange={(e) => setLinkedin(e.target.value)}
           />
+          <ToastContainer />
           <Input
             label="Github URL"
             placeholder="https://github.com/killu4kun"
