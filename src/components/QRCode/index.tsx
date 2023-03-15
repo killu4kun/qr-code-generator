@@ -1,5 +1,5 @@
 import QRCode from "react-qr-code";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useQrCode from "../../hooks/useQrCode";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
