@@ -73,8 +73,8 @@ export default function Form() {
           <Input
             placeholder="https://www.linkedin.com/in/mateeus-soarees/"
             value={linkedin}
-            label="Linkedin URL"
             onChange={(e) => setLinkedin(e.target.value)}
+            label="Linkedin URL"
           />
           <ToastContainer />
           <Input
