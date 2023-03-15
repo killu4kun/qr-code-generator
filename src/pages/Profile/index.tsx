@@ -23,7 +23,7 @@ export default function Profile() {
               <img
                 src="https://source.unsplash.com/random?ux"
                 className="h-64 w-full object-cover rounded-xl"
-                alt="Layout Image"
+                alt="Layout Img"
               />
             </div>
           </div>
