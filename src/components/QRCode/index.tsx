@@ -7,11 +7,10 @@ export default function QRCd() {
   const { name, linkedin, github } = useQrCode();
   const navigate = useNavigate();
 
-  
   const oldURL = process.env.REACT_APP_DOMAIN || "http://localhost:3000/";
   const queryParams = `?LINKEDIN_URL=${linkedin}&GITHUB_URL=${github}`;
-  const newURL = `${oldURL}${name}${queryParams}`
-  
+  const newURL = `${oldURL}${name}${queryParams}`;
+
   const handleQrCodeClick = () => {
     navigate(`/${name}${queryParams}`);
   };
@@ -30,7 +29,7 @@ export default function QRCd() {
             </div>
             <div className="flex grow-1">
               {window.innerWidth <= 768 ? (
-                <QRCode onClick={handleQrCodeClick} value={newURL} size={50} />
+                <QRCode onClick={handleQrCodeClick} value={newURL} size={75} />
               ) : (
                 <QRCode onClick={handleQrCodeClick} value={newURL} size={100} />
               )}
