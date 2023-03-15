@@ -20,16 +20,8 @@ jobs:
         env:
           PRODUCTION_DOMAIN: ${{ secrets.REACT_APP_DOMAIN }}
 
-      - name: Check if dist folder exists
-        run: |
-          ls
-          ls dist
-          
-      - name: Rename dist folder to build
-        run: mv dist build
-
       - uses: shinyinc/action-aws-cli@v1.2
-      - run: aws s3 sync build/ s3://${{ secrets.AWS_S3_BUCKET_NAME }} --delete
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
