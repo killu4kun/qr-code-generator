@@ -15,10 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install && npm run build
         env:
-          PRODUCTION_DOMAIN: ${{ secrets.REACT_APP_DOMAIN }}
-      - name: Check if dist folder exists
-        run: |
-          ls 
+          REACT_APP_DOMAIN: ${{ secrets.REACT_APP_DOMAIN }}        
 
       - uses: shinyinc/action-aws-cli@v1.2
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/
