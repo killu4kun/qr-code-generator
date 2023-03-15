@@ -4,15 +4,17 @@ import useQrCode from "../../hooks/useQrCode";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export default function QRCd() {
-  const { name } = useQrCode();
+  const { name, linkedin, github } = useQrCode();
   const navigate = useNavigate();
 
-  const handleQrCodeClick = () => {
-    navigate(`/${name}`);
-  };
-
+  
   const oldURL = process.env.REACT_APP_DOMAIN || "http://localhost:3000/";
-  const newURL = oldURL.concat(name);
+  const queryParams = `?LINKEDIN_URL=${linkedin}&GITHUB_URL=${github}`;
+  const newURL = `${oldURL}${name}${queryParams}`
+  
+  const handleQrCodeClick = () => {
+    navigate(`/${name}${queryParams}`);
+  };
 
   return (
     <div className="h-screen bg-gray-50 flex items-center w-screen">
