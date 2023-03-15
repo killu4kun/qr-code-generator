@@ -78,8 +78,8 @@ export default function Form() {
           />
           <ToastContainer />
           <Input
-            label="Github URL"
             placeholder="https://github.com/killu4kun"
+            label="Github URL"
             value={github}
             onChange={(e) => setGithub(e.target.value)}
           />
