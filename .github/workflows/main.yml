@@ -20,6 +20,11 @@ jobs:
         env:
           PRODUCTION_DOMAIN: ${{ secrets.REACT_APP_DOMAIN }}
 
+      - name: Check if dist folder exists
+        run: |
+          ls
+          ls dist
+          
       - name: Rename dist folder to build
         run: mv dist build
 

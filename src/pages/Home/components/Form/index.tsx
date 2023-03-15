@@ -84,8 +84,8 @@ export default function Form() {
             onChange={(e) => setGithub(e.target.value)}
           />
           <Button
-            disabled={handleDisabled()}
             aria-label="button-name"
+            disabled={handleDisabled()}
             label="Generate Image"
           />
         </form>
