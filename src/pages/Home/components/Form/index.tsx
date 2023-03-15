@@ -71,8 +71,8 @@ export default function Form() {
             onChange={(e) => setName(e.target.value)}
           />
           <Input
-            label="Linkedin URL"
             placeholder="https://www.linkedin.com/in/mateeus-soarees/"
+            label="Linkedin URL"
             value={linkedin}
             onChange={(e) => setLinkedin(e.target.value)}
           />
